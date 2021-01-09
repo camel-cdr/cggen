@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg version="1.1" width="200" height="200">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<g transform="translate(10,10) scale(0.9,0.9)">
+<defs>
+	<linearGradient id="grad0" gradientUnits="userSpaceOnUse" x1="154.641667" y1="183.751348" x2="3.490687" y2="126.190697">
+		<stop offset="0%" stop-color="#E3BE37"/>
+		<stop offset="100%" stop-color="#7137CF"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad0)" d="
+M153.702641,184.356543
+Q100,100 3.789295,127.267202
+A100,100,0,0,1, 3.490687,126.190697
+Q100,100 154.641667,183.751348
+A100,100,0,0,1, 153.702641,184.356543 Z
+"/>
+<defs>
+	<linearGradient id="grad1" gradientUnits="userSpaceOnUse" x1="23.131619" y1="163.962895" x2="199.048222" y2="86.235930">
+		<stop offset="0%" stop-color="#935884"/>
+		<stop offset="100%" stop-color="#C8FC8D"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad1)" d="
+M23.131619,163.962895
+Q100,100 199.048222,86.235930
+A100,100,0,0,1, 199.973631,97.703697
+Q100,100 30.987131,172.368666
+A100,100,0,0,1, 23.131619,163.962895 Z
+"/>
+<defs>
+	<linearGradient id="grad2" gradientUnits="userSpaceOnUse" x1="39.183343" y1="20.619056" x2="2.354123" y2="78.429588">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#E38050"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad2)" d="
+M39.183343,20.619056
+Q100,100 2.354123,78.429588
+A100,100,0,0,1, 2.609497,77.304405
+Q100,100 38.271510,21.326030
+A100,100,0,0,1, 39.183343,20.619056 Z
+"/>
+<defs>
+	<linearGradient id="grad3" gradientUnits="userSpaceOnUse" x1="198.268660" y1="118.527559" x2="30.987131" y2="172.368666">
+		<stop offset="0%" stop-color="#A5E2AC"/>
+		<stop offset="100%" stop-color="#935884"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad3)" d="
+M198.038515,119.709124
+Q100,100 31.863268,173.194164
+A100,100,0,0,1, 30.987131,172.368666
+Q100,100 198.268660,118.527559
+A100,100,0,0,1, 198.038515,119.709124 Z
+"/>
+<defs>
+	<linearGradient id="grad4" gradientUnits="userSpaceOnUse" x1="195.074031" y1="69.001151" x2="12.832864" y2="50.990914">
+		<stop offset="0%" stop-color="#D10C0F"/>
+		<stop offset="100%" stop-color="#316A54"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad4)" d="
+M195.074031,69.001151
+Q100,100 12.832864,50.990914
+A100,100,0,0,1, 13.434129,49.936540
+Q100,100 194.690782,67.849481
+A100,100,0,0,1, 195.074031,69.001151 Z
+"/>
+<defs>
+	<linearGradient id="grad5" gradientUnits="userSpaceOnUse" x1="40.209146" y1="19.843567" x2="1.108422" y2="85.152249">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#4D5879"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad5)" d="
+M40.209146,19.843567
+Q100,100 1.108422,85.152249
+A100,100,0,0,1, 1.307528,83.881811
+Q100,100 39.183343,20.619056
+A100,100,0,0,1, 40.209146,19.843567 Z
+"/>
+<defs>
+	<linearGradient id="grad6" gradientUnits="userSpaceOnUse" x1="80.187459" y1="198.017668" x2="154.422918" y2="16.106341">
+		<stop offset="0%" stop-color="#CDE6B0"/>
+		<stop offset="100%" stop-color="#B14E47"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad6)" d="
+M80.187459,198.017668
+Q100,100 154.422918,16.106341
+A100,100,0,0,1, 164.766876,23.807797
+Q100,100 92.966379,199.752334
+A100,100,0,0,1, 80.187459,198.017668 Z
+"/>
+<defs>
+	<linearGradient id="grad7" gradientUnits="userSpaceOnUse" x1="183.702771" y1="154.716050" x2="107.547519" y2="0.285232">
+		<stop offset="0%" stop-color="#4D3F2D"/>
+		<stop offset="100%" stop-color="#6113C6"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad7)" d="
+M183.702771,154.716050
+Q100,100 107.547519,0.285232
+A100,100,0,0,1, 108.851269,0.392495
+Q100,100 184.411365,153.616430
+A100,100,0,0,1, 183.702771,154.716050 Z
+"/>
+<defs>
+	<linearGradient id="grad8" gradientUnits="userSpaceOnUse" x1="43.888140" y1="17.226459" x2="156.563265" y2="182.465732">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#E3BE37"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad8)" d="
+M55.212507,10.590378
+Q100,100 166.876741,174.347169
+A100,100,0,0,1, 156.563265,182.465732
+Q100,100 43.888140,17.226459
+A100,100,0,0,1, 55.212507,10.590378 Z
+"/>
+<defs>
+	<linearGradient id="grad9" gradientUnits="userSpaceOnUse" x1="1.441246" y1="116.916618" x2="23.523002" y2="35.569659">
+		<stop offset="0%" stop-color="#4D5F3"/>
+		<stop offset="100%" stop-color="#5C36F2"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad9)" d="
+M1.225440,115.607250
+Q100,100 22.674743,36.590185
+A100,100,0,0,1, 23.523002,35.569659
+Q100,100 1.441246,116.916618
+A100,100,0,0,1, 1.225440,115.607250 Z
+"/>
+<defs>
+	<linearGradient id="grad10" gradientUnits="userSpaceOnUse" x1="10.679583" y1="144.965132" x2="12.136576" y2="52.250458">
+		<stop offset="0%" stop-color="#935884"/>
+		<stop offset="100%" stop-color="#316A54"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad10)" d="
+M5.450794,132.564515
+Q100,100 6.520719,64.480653
+A100,100,0,0,1, 12.136576,52.250458
+Q100,100 10.679583,144.965132
+A100,100,0,0,1, 5.450794,132.564515 Z
+"/>
+<defs>
+	<linearGradient id="grad11" gradientUnits="userSpaceOnUse" x1="167.925116" y1="173.390589" x2="199.973631" y2="97.703697">
+		<stop offset="0%" stop-color="#E3BE37"/>
+		<stop offset="100%" stop-color="#C8FC8D"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad11)" d="
+M167.925116,173.390589
+Q100,100 199.973631,97.703697
+A100,100,0,0,1, 199.995945,99.099400
+Q100,100 168.942919,172.435308
+A100,100,0,0,1, 167.925116,173.390589 Z
+"/>
+<defs>
+	<linearGradient id="grad12" gradientUnits="userSpaceOnUse" x1="166.876741" y1="174.347169" x2="192.221135" y2="61.331379">
+		<stop offset="0%" stop-color="#E3BE37"/>
+		<stop offset="100%" stop-color="#E653AB"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad12)" d="
+M166.876741,174.347169
+Q100,100 192.221135,61.331379
+A100,100,0,0,1, 192.760620,62.644044
+Q100,100 167.925116,173.390589
+A100,100,0,0,1, 166.876741,174.347169 Z
+"/>
+<defs>
+	<linearGradient id="grad13" gradientUnits="userSpaceOnUse" x1="183.702771" y1="154.716050" x2="12.832864" y2="50.990914">
+		<stop offset="0%" stop-color="#4D3F2D"/>
+		<stop offset="100%" stop-color="#316A54"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad13)" d="
+M182.906655,155.914994
+Q100,100 12.136576,52.250458
+A100,100,0,0,1, 12.832864,50.990914
+Q100,100 183.702771,154.716050
+A100,100,0,0,1, 182.906655,155.914994 Z
+"/>
+<defs>
+	<linearGradient id="grad14" gradientUnits="userSpaceOnUse" x1="71.530860" y1="4.138078" x2="147.986468" y2="12.265748">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#F8D1D9"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad14)" d="
+M72.914477,3.737991
+Q100,100 146.717886,11.583717
+A100,100,0,0,1, 147.986468,12.265748
+Q100,100 71.530860,4.138078
+A100,100,0,0,1, 72.914477,3.737991 Z
+"/>
+<defs>
+	<linearGradient id="grad15" gradientUnits="userSpaceOnUse" x1="55.212507" y1="10.590378" x2="191.205334" y2="58.992841">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#E653AB"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad15)" d="
+M68.705680,5.022816
+Q100,100 184.263981,46.152238
+A100,100,0,0,1, 191.205334,58.992841
+Q100,100 55.212507,10.590378
+A100,100,0,0,1, 68.705680,5.022816 Z
+"/>
+<defs>
+	<linearGradient id="grad16" gradientUnits="userSpaceOnUse" x1="182.906655" y1="155.914994" x2="92.966379" y2="199.752334">
+		<stop offset="0%" stop-color="#4D3F2D"/>
+		<stop offset="100%" stop-color="#CDE6B0"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad16)" d="
+M182.066090,157.141551
+Q100,100 94.450374,199.845889
+A100,100,0,0,1, 92.966379,199.752334
+Q100,100 182.906655,155.914994
+A100,100,0,0,1, 182.066090,157.141551 Z
+"/>
+<defs>
+	<linearGradient id="grad17" gradientUnits="userSpaceOnUse" x1="0.000182" y1="99.808995" x2="173.867745" y2="167.405907">
+		<stop offset="0%" stop-color="#403033"/>
+		<stop offset="100%" stop-color="#D8DB7F"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad17)" d="
+M0.000182,99.808995
+Q100,100 173.867745,167.405907
+A100,100,0,0,1, 172.856560,168.497603
+Q100,100 0.008412,101.297023
+A100,100,0,0,1, 0.000182,99.808995 Z
+"/>
+<defs>
+	<linearGradient id="grad18" gradientUnits="userSpaceOnUse" x1="85.401584" y1="1.071307" x2="198.268660" y2="118.527559">
+		<stop offset="0%" stop-color="#575572"/>
+		<stop offset="100%" stop-color="#A5E2AC"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad18)" d="
+M86.908296,0.860667
+Q100,100 198.539151,117.030434
+A100,100,0,0,1, 198.268660,118.527559
+Q100,100 85.401584,1.071307
+A100,100,0,0,1, 86.908296,0.860667 Z
+"/>
+<defs>
+	<linearGradient id="grad19" gradientUnits="userSpaceOnUse" x1="21.525919" y1="161.982406" x2="181.145772" y2="41.558887">
+		<stop offset="0%" stop-color="#935884"/>
+		<stop offset="100%" stop-color="#A842CA"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad19)" d="
+M12.800229,148.950996
+Q100,100 171.010784,29.590707
+A100,100,0,0,1, 181.145772,41.558887
+Q100,100 21.525919,161.982406
+A100,100,0,0,1, 12.800229,148.950996 Z
+"/>
+<defs>
+	<linearGradient id="grad20" gradientUnits="userSpaceOnUse" x1="101.672329" y1="199.986016" x2="79.933909" y2="2.033924">
+		<stop offset="0%" stop-color="#3C4D86"/>
+		<stop offset="100%" stop-color="#3E768"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad20)" d="
+M100.000000,200.000000
+Q100,100 78.298401,2.383195
+A100,100,0,0,1, 79.933909,2.033924
+Q100,100 101.672329,199.986016
+A100,100,0,0,1, 100.000000,200.000000 Z
+"/>
+<defs>
+	<linearGradient id="grad21" gradientUnits="userSpaceOnUse" x1="154.422918" y1="16.106341" x2="13.434129" y2="49.936540">
+		<stop offset="0%" stop-color="#B14E47"/>
+		<stop offset="100%" stop-color="#316A54"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad21)" d="
+M154.422918,16.106341
+Q100,100 13.434129,49.936540
+A100,100,0,0,1, 14.423906,48.262856
+Q100,100 152.781439,15.064026
+A100,100,0,0,1, 154.422918,16.106341 Z
+"/>
+<defs>
+	<linearGradient id="grad22" gradientUnits="userSpaceOnUse" x1="100.016657" y1="0.000001" x2="199.586290" y2="109.086851">
+		<stop offset="0%" stop-color="#9D5CF0"/>
+		<stop offset="100%" stop-color="#A701D"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad22)" d="
+M102.002090,0.020044
+Q100,100 199.747073,107.107838
+A100,100,0,0,1, 199.586290,109.086851
+Q100,100 100.016657,0.000001
+A100,100,0,0,1, 102.002090,0.020044 Z
+"/>
+<defs>
+	<linearGradient id="grad23" gradientUnits="userSpaceOnUse" x1="92.430335" y1="0.286911" x2="177.494683" y2="163.202643">
+		<stop offset="0%" stop-color="#C4A01A"/>
+		<stop offset="100%" stop-color="#4B3629"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad23)" d="
+M94.467005,0.153187
+Q100,100 178.768475,161.607851
+A100,100,0,0,1, 177.494683,163.202643
+Q100,100 92.430335,0.286911
+A100,100,0,0,1, 94.467005,0.153187 Z
+"/>
+<defs>
+	<linearGradient id="grad24" gradientUnits="userSpaceOnUse" x1="184.411365" y1="153.616430" x2="117.591516" y2="1.559467">
+		<stop offset="0%" stop-color="#4D3F2D"/>
+		<stop offset="100%" stop-color="#D0C0B7"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad24)" d="
+M184.411365,153.616430
+Q100,100 117.591516,1.559467
+A100,100,0,0,1, 138.996092,7.916859
+Q100,100 194.204131,133.549690
+A100,100,0,0,1, 184.411365,153.616430 Z
+"/>
+<defs>
+	<linearGradient id="grad25" gradientUnits="userSpaceOnUse" x1="4.693589" y1="69.723143" x2="156.563265" y2="182.465732">
+		<stop offset="0%" stop-color="#6A5806"/>
+		<stop offset="100%" stop-color="#E3BE37"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad25)" d="
+M4.693589,69.723143
+Q100,100 156.563265,182.465732
+A100,100,0,0,1, 154.641667,183.751348
+Q100,100 4.019107,71.934573
+A100,100,0,0,1, 4.693589,69.723143 Z
+"/>
+<defs>
+	<linearGradient id="grad26" gradientUnits="userSpaceOnUse" x1="198.539151" y1="117.030434" x2="199.995945" y2="99.099400">
+		<stop offset="0%" stop-color="#A5E2AC"/>
+		<stop offset="100%" stop-color="#C8FC8D"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad26)" d="
+M198.539151,117.030434
+Q100,100 199.995945,99.099400
+A100,100,0,0,1, 199.987811,101.561294
+Q100,100 198.928531,114.599514
+A100,100,0,0,1, 198.539151,117.030434 Z
+"/>
+<defs>
+	<linearGradient id="grad27" gradientUnits="userSpaceOnUse" x1="21.525919" y1="161.982406" x2="191.205334" y2="58.992841">
+		<stop offset="0%" stop-color="#935884"/>
+		<stop offset="100%" stop-color="#E653AB"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad27)" d="
+M21.525919,161.982406
+Q100,100 191.205334,58.992841
+A100,100,0,0,1, 192.221135,61.331379
+Q100,100 23.131619,163.962895
+A100,100,0,0,1, 21.525919,161.982406 Z
+"/>
+<defs>
+	<linearGradient id="grad28" gradientUnits="userSpaceOnUse" x1="68.705680" y1="5.022816" x2="171.010784" y2="29.590707">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#A842CA"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad28)" d="
+M71.530860,4.138078
+Q100,100 168.895446,27.519537
+A100,100,0,0,1, 171.010784,29.590707
+Q100,100 68.705680,5.022816
+A100,100,0,0,1, 71.530860,4.138078 Z
+"/>
+<defs>
+	<linearGradient id="grad29" gradientUnits="userSpaceOnUse" x1="138.996092" y1="7.916859" x2="198.131724" y2="80.760335">
+		<stop offset="0%" stop-color="#D0C0B7"/>
+		<stop offset="100%" stop-color="#7F93E"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad29)" d="
+M141.739115,9.127308
+Q100,100 197.510833,77.827102
+A100,100,0,0,1, 198.131724,80.760335
+Q100,100 138.996092,7.916859
+A100,100,0,0,1, 141.739115,9.127308 Z
+"/>
+<defs>
+	<linearGradient id="grad30" gradientUnits="userSpaceOnUse" x1="117.591516" y1="1.559467" x2="14.423906" y2="48.262856">
+		<stop offset="0%" stop-color="#D0C0B7"/>
+		<stop offset="100%" stop-color="#316A54"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad30)" d="
+M117.591516,1.559467
+Q100,100 14.423906,48.262856
+A100,100,0,0,1, 16.160171,45.494193
+Q100,100 114.365472,1.037213
+A100,100,0,0,1, 117.591516,1.559467 Z
+"/>
+<defs>
+	<linearGradient id="grad31" gradientUnits="userSpaceOnUse" x1="0.234489" y1="106.844184" x2="196.793645" y2="125.119522">
+		<stop offset="0%" stop-color="#24FB67"/>
+		<stop offset="100%" stop-color="#ADF621"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad31)" d="
+M0.234489,106.844184
+Q100,100 196.793645,125.119522
+A100,100,0,0,1, 195.920835,128.270009
+Q100,100 0.511518,110.101579
+A100,100,0,0,1, 0.234489,106.844184 Z
+"/>
+<defs>
+	<linearGradient id="grad32" gradientUnits="userSpaceOnUse" x1="196.130046" y1="72.449786" x2="0.164893" y2="94.259673">
+		<stop offset="0%" stop-color="#D10C0F"/>
+		<stop offset="100%" stop-color="#AE98A0"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad32)" d="
+M196.130046,72.449786
+Q100,100 0.164893,94.259673
+A100,100,0,0,1, 0.436829,90.663244
+Q100,100 195.074031,69.001151
+A100,100,0,0,1, 196.130046,72.449786 Z
+"/>
+<defs>
+	<linearGradient id="grad33" gradientUnits="userSpaceOnUse" x1="2.185933" y1="120.794428" x2="29.980526" y2="28.604809">
+		<stop offset="0%" stop-color="#4D5F3"/>
+		<stop offset="100%" stop-color="#91731"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad33)" d="
+M1.441246,116.916618
+Q100,100 27.216505,31.424765
+A100,100,0,0,1, 29.980526,28.604809
+Q100,100 2.185933,120.794428
+A100,100,0,0,1, 1.441246,116.916618 Z
+"/>
+<defs>
+	<linearGradient id="grad34" gradientUnits="userSpaceOnUse" x1="43.888140" y1="17.226459" x2="12.800229" y2="148.950996">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#935884"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad34)" d="
+M43.888140,17.226459
+Q100,100 12.800229,148.950996
+A100,100,0,0,1, 10.679583,144.965132
+Q100,100 40.209146,19.843567
+A100,100,0,0,1, 43.888140,17.226459 Z
+"/>
+<defs>
+	<linearGradient id="grad35" gradientUnits="userSpaceOnUse" x1="153.702641" y1="184.356543" x2="31.863268" y2="173.194164">
+		<stop offset="0%" stop-color="#E3BE37"/>
+		<stop offset="100%" stop-color="#935884"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad35)" d="
+M107.218602,199.739119
+Q100,100 74.778378,196.767090
+A100,100,0,0,1, 31.863268,173.194164
+Q100,100 153.702641,184.356543
+A100,100,0,0,1, 107.218602,199.739119 Z
+"/>
+<defs>
+	<linearGradient id="grad36" gradientUnits="userSpaceOnUse" x1="38.271510" y1="21.326030" x2="16.160171" y2="45.494193">
+		<stop offset="0%" stop-color="#156708"/>
+		<stop offset="100%" stop-color="#316A54"/>
+	</linearGradient>
+</defs>
+<path fill-opacity="0.7" fill="url(#grad36)" d="
+M38.271510,21.326030
+Q100,100 16.160171,45.494193
+A100,100,0,0,1, 19.274902,40.979169
+Q100,100 34.050600,24.829017
+A100,100,0,0,1, 38.271510,21.326030 Z
+"/>
+</g>
+</svg>
