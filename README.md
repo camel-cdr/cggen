@@ -5,9 +5,9 @@ A chord graph generator.
 This is currently in the very early stages of development!!!
 
 ## Examples
-![](./res/1.svg)
-![](./res/2.svg)
-![](./res/3.svg)
+![](./res/1.png)
+![](./res/2.png)
+![](./res/3.png)
 
 ## References
 https://svgpocketguide.com/book/
