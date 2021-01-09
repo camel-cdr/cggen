@@ -6,8 +6,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include </home/camel/dev/cauldron/cauldron/random.h>
-#include </home/camel/git/cauldron/cauldron/stretchy-buffer.h>
+#include "vendor/random.h"
+#include "vendor/stretchy-buffer.h"
 
 #define PI 3.141592653589793238462643383279502884
 #define LENGTH(a) (sizeof (a) / sizeof *(a))
@@ -28,41 +28,11 @@ static size_t lable_intern(char *name);
 static void load_chords_row(size_t cnt, char *l, char *r);
 static void load_csv(char *filename);
 
+static void shuf_lables(void);
+
 static Sb(struct Lable) lables;
 static Sb(struct Chord) chords;
 static char *file;
-
-static void
-shuf_lables(uint64_t (*rand64)(void*), void *rng)
-{
-	size_t n = sb_len(lables);
-	for (; n >= 2; n--) {
-		size_t li = n-1;
-		size_t ri = dist_uniform_u64(n, rand64, rng);
-		struct Lable *l = &lables.at[li];
-		struct Lable *r = &lables.at[ri];
-
-		/* swap */
-		struct Lable tmp = *r;
-		*r = *l;
-		*l = tmp;
-
-		/* swap indexes */
-		for (size_t i = 0; i < sb_len(chords); ++i) {
-			/**/ if (chords.at[i].l == ri)
-				chords.at[i].l = li;
-			else if (chords.at[i].l == li)
-				chords.at[i].l = ri;
-
-
-			/**/ if (chords.at[i].r == ri) {
-				chords.at[i].r = li;
-			}
-			else if (chords.at[i].r == li)
-				chords.at[i].r = ri;
-		}
-	}
-}
 
 void
 calc_angles(double *x, double *y, size_t total, size_t cur)
@@ -93,15 +63,12 @@ int
 main(void)
 {
 	size_t i, j, k;
-	PRNG64RomuQuad prng64;
-	ShufLcg lcg;
-	prng64_romu_quad_randomize(&prng64);
 
 	sb_init(lables);
 	sb_init(chords);
 
 	load_csv("data/hp.csv");
-	shuf_lables(prng64_romu_quad, &prng64);
+	shuf_lables();
 
 	size_t total = 0;
 
@@ -273,3 +240,36 @@ load_csv(char *filename)
 			load_chords_row(cnt, l, r);
 	}
 }
+
+void
+shuf_lables(void)
+{
+	size_t n = sb_len(lables);
+	for (; n >= 2; n--) {
+		size_t li = n-1;
+		size_t ri = dist_uniform(n);
+		struct Lable *l = &lables.at[li];
+		struct Lable *r = &lables.at[ri];
+
+		/* swap */
+		struct Lable tmp = *r;
+		*r = *l;
+		*l = tmp;
+
+		/* swap indexes */
+		for (size_t i = 0; i < sb_len(chords); ++i) {
+			/**/ if (chords.at[i].l == ri)
+				chords.at[i].l = li;
+			else if (chords.at[i].l == li)
+				chords.at[i].l = ri;
+
+
+			/**/ if (chords.at[i].r == ri) {
+				chords.at[i].r = li;
+			}
+			else if (chords.at[i].r == li)
+				chords.at[i].r = ri;
+		}
+	}
+}
+
