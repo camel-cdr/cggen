@@ -5,9 +5,9 @@ A chord graph generator.
 This is currently in the very early stages of development!!!
 
 ## Examples
-![Alt text](https://raw.github.com/camel-cdr/cggen/master/res/1.svg)
-![Alt text](https://raw.github.com/camel-cdr/cggen/master/res/2.svg)
-![Alt text](https://raw.github.com/camel-cdr/cggen/master/res/3.svg)
+![](./res/1.svg)
+![](./res/2.svg)
+![](./res/3.svg)
 
 ## References
 https://svgpocketguide.com/book/
