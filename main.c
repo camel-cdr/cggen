@@ -30,9 +30,12 @@ static void load_csv(char *filename);
 
 static void shuf_lables(void);
 
+static void print_chords(void);
+
 static Sb(struct Lable) lables;
 static Sb(struct Chord) chords;
 static char *file;
+static size_t total;
 
 void
 calc_angles(double *x, double *y, size_t total, size_t cur)
@@ -70,7 +73,6 @@ main(void)
 	load_csv("data/hp.csv");
 	shuf_lables();
 
-	size_t total = 0;
 
 	for (i = 0; i < sb_len(lables); ++i) {
 		struct Lable *l = &lables.at[i];
@@ -90,75 +92,7 @@ main(void)
 		total += 5000;
 	}
 
-	puts("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
-	puts("<svg version=\"1.1\" width=\"200\" height=\"200\">");
-	puts("<rect width=\"100%\" height=\"100%\" fill=\"#FFFFFF\"/>");
-
-	puts("<g transform=\"translate(10,10) scale(0.9,0.9)\">");
-
-	for (i = 0; i < sb_len(chords); ++i) {
-		double l1x, l1y, l2x, l2y;
-		double r1x, r1y, r2x, r2y;
-
-		struct Chord *c = &chords.at[i];
-		struct Lable *l = &lables.at[c->l];
-		struct Lable *r = &lables.at[c->r];
-
-		calc_angles(&l1x, &l1y, total, c->lbeg);
-		calc_angles(&l2x, &l2y, total, c->lend);
-		calc_angles(&r1x, &r1y, total, c->rbeg);
-		calc_angles(&r2x, &r2y, total, c->rend);
-
-		double lx, ly, rx, ry;
-		if (pow(l1x - r2x, 2) + pow(l1y - r2y, 2) >
-		    pow(l2x - r1x, 2) + pow(l2y - r1y, 2)) {
-			lx = l1x;
-			ly = l1y;
-			rx = r2x;
-			ry = r2y;
-		} else {
-			lx = l2x;
-			ly = l2y;
-			rx = r1x;
-			ry = r1y;
-		}
-
-		printf("<defs>\n"
-		       "\t<linearGradient id=\"grad%zu\" "
-			"gradientUnits=\"userSpaceOnUse\" "
-		       "x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\">\n"
-
-		       "\t\t<stop offset=\"0%\" stop-color=\"#%X\"/>\n"
-		       "\t\t<stop offset=\"100%\" stop-color=\"#%X\"/>\n"
-		       "\t</linearGradient>\n"
-		       "</defs>\n",
-			i, lx, ly, rx, ry, l->col, r->col);
-
-		printf("<path fill-opacity=\"0.7\" fill=\"url(#grad%zu)\" d=\"\n"
-				"M%f,%f\n"
-				"Q100,100 %f,%f\n"
-				"A100,100,0,0,1, %f,%f\n"
-				"Q100,100 %f,%f\n"
-				"A100,100,0,0,1, %f,%f Z\n"
-			"\"/>\n",
-			i,
-			l1x, l1y,
-			r2x, r2y,
-			r1x, r1y,
-			l2x, l2y,
-			l1x, l1y
-		);
-	}
-
-#if 0
-	printf("<g transform=\"translate(%f,%f) rotate(%f) scale(0.4,0.4)\">",
-	       l1x, l1y, (1+atan2(100-l1x, l1y-100) / PI) * 180.0 + 90);
-	printf("<text dx=\"-%fem\">%s</text>", strlen(r->name) / 2.0, r->name);
-	printf("</g>");
-#endif
-
-	puts("</g>");
-	puts("</svg>");
+	print_chords();
 
 	return EXIT_SUCCESS;
 }
@@ -273,3 +207,80 @@ shuf_lables(void)
 	}
 }
 
+void
+print_chords(void)
+{
+	size_t i;
+	puts("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
+	puts("<svg version=\"1.1\" width=\"200\" height=\"200\">");
+	puts("<rect width=\"100%\" height=\"100%\" fill=\"#FFFFFF\"/>");
+
+	puts("<g transform=\"translate(40,40) scale(0.60,0.60)\">");
+
+	for (i = 0; i < sb_len(chords); ++i) {
+		double l1x, l1y, l2x, l2y;
+		double r1x, r1y, r2x, r2y;
+
+		struct Chord *c = &chords.at[i];
+		struct Lable *l = &lables.at[c->l];
+		struct Lable *r = &lables.at[c->r];
+
+		calc_angles(&l1x, &l1y, total, c->lbeg);
+		calc_angles(&l2x, &l2y, total, c->lend);
+		calc_angles(&r1x, &r1y, total, c->rbeg);
+		calc_angles(&r2x, &r2y, total, c->rend);
+
+		double lx, ly, rx, ry;
+		if (pow(l1x - r2x, 2) + pow(l1y - r2y, 2) >
+		    pow(l2x - r1x, 2) + pow(l2y - r1y, 2)) {
+			lx = l1x;
+			ly = l1y;
+			rx = r2x;
+			ry = r2y;
+		} else {
+			lx = l2x;
+			ly = l2y;
+			rx = r1x;
+			ry = r1y;
+		}
+
+		printf("<defs>\n"
+		       "\t<linearGradient id=\"grad%zu\" "
+			"gradientUnits=\"userSpaceOnUse\" "
+		       "x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\">\n"
+
+		       "\t\t<stop offset=\"0%\" stop-color=\"#%X\"/>\n"
+		       "\t\t<stop offset=\"100%\" stop-color=\"#%X\"/>\n"
+		       "\t</linearGradient>\n"
+		       "</defs>\n",
+			i, lx, ly, rx, ry, l->col, r->col);
+
+		printf("<path fill-opacity=\"0.7\" fill=\"url(#grad%zu)\" d=\"\n"
+				"M%f,%f\n"
+				"Q100,100 %f,%f\n"
+				"A100,100,0,0,1, %f,%f\n"
+				"Q100,100 %f,%f\n"
+				"A100,100,0,0,1, %f,%f Z\n"
+			"\"/>\n",
+			i,
+			l1x, l1y,
+			r2x, r2y,
+			r1x, r1y,
+			l2x, l2y,
+			l1x, l1y
+		);
+	}
+
+#if 0
+	for (i = 0; i < sb_len(lables); ++i) {
+		printf("<g transform=\"translate(%f,%f) rotate(%f) scale(0.4,0.4)\">",
+		l1x, l1y, (1+atan2(100-l1x, l1y-100) / PI) * 180.0 + 90);
+		printf("<text dx=\"-%fem\">%s</text>", strlen(r->name) / 2.0, r->name);
+		printf("</g>");
+	}
+#endif
+
+
+	puts("</g>");
+	puts("</svg>");
+}
