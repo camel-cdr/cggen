@@ -1,4 +1,7 @@
 #ifndef RANDOM_H_INCLUDED
+#define _GNU_SOURCE
+#include <float.h>
+#include <stdint.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -22,7 +25,6 @@ trng_write(void *ptr, size_t n)
 	return 1;
 }
 #elif defined(__unix__) || (defined(__APPLE__) && defined(__MACH__))
-#define _GNU_SOURCE
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/stat.h>
@@ -62,6 +64,15 @@ dist_uniform(size_t range)
 		r = x % range;
 	} while (x - r > -range);
 	return r;
+}
+
+float
+dist_uniformf(void)
+{
+	uint_least32_t x;
+	trng_write(&x, sizeof x);
+	return (x >> (32 - FLT_MANT_DIG)) *
+	       (1.0f / (UINT32_C(1) << FLT_MANT_DIG));
 }
 
 #define RANDOM_H_INCLUDED

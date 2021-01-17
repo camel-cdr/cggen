@@ -20,6 +20,7 @@ This is currently in the very early stages of development!!!
 
 ## References
 https://svgpocketguide.com/book/
+https://martin.ankerl.com/2009/12/09/how-to-create-random-colors-programmatically/
 
 ## Licensing
 For all files without a integrated license [LICENSE](LICENSE) applies.

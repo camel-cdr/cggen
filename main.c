@@ -97,6 +97,26 @@ main(void)
 	return EXIT_SUCCESS;
 }
 
+static uint32_t
+HSVtoRGB(float H, float S, float V)
+{
+	const unsigned idx = H * 6;
+	const float f = H * 6 - idx;
+	const float p = V * (1 - S);
+	const float q = V * (1 - f * S);
+	const float t = V * (1 - (1 - f) * S);
+	float r, g, b;
+
+	switch (idx) {
+	case 0: return ((uint32_t)(V*256)<<16) | ((uint32_t)(t*256)<<8) | (uint32_t)(p*256);
+	case 1: return ((uint32_t)(q*256)<<16) | ((uint32_t)(V*256)<<8) | (uint32_t)(p*256);
+	case 2: return ((uint32_t)(p*256)<<16) | ((uint32_t)(V*256)<<8) | (uint32_t)(t*256);
+	case 3: return ((uint32_t)(p*256)<<16) | ((uint32_t)(p*256)<<8) | (uint32_t)(V*256);
+	case 4: return ((uint32_t)(t*256)<<16) | ((uint32_t)(q*256)<<8) | (uint32_t)(V*256);
+	case 5: return ((uint32_t)(V*256)<<16) | ((uint32_t)(q*256)<<8) | (uint32_t)(q*256);
+	}
+}
+
 size_t
 lable_intern(char *name)
 {
@@ -105,9 +125,9 @@ lable_intern(char *name)
 		if (strcmp(name, lables.at[i].name) == 0)
 			break;
 	if (i == sb_len(lables)) {
+		static const float phi = 0.618033988749895;
 		struct Lable lbl = { name };
-		trng_write(&lbl.col, sizeof lbl.col);
-		lbl.col &= 0xFFFFFF;
+		lbl.col = HSVtoRGB(fmod(dist_uniformf() + phi, 1), 0.90, 0.95);
 		sb_init(lbl.chords);
 		sb_push(lables, lbl);
 	}
@@ -170,7 +190,7 @@ load_csv(char *filename)
 			break;
 		*it++ = 0;
 
-		if (cnt > 500)
+		if (cnt > 3000)
 			load_chords_row(cnt, l, r);
 	}
 }
@@ -255,7 +275,7 @@ print_chords(void)
 		       "</defs>\n",
 			i, lx, ly, rx, ry, l->col, r->col);
 
-		printf("<path fill-opacity=\"0.7\" fill=\"url(#grad%zu)\" d=\"\n"
+		printf("<path fill-opacity=\"0.75\" fill=\"url(#grad%zu)\" d=\"\n"
 				"M%f,%f\n"
 				"Q100,100 %f,%f\n"
 				"A100,100,0,0,1, %f,%f\n"
