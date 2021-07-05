@@ -67,12 +67,8 @@ main(void)
 {
 	size_t i, j, k;
 
-	sb_init(lables);
-	sb_init(chords);
-
 	load_csv("data/hp.csv");
 	shuf_lables();
-
 
 	for (i = 0; i < sb_len(lables); ++i) {
 		struct Lable *l = &lables.at[i];
@@ -128,7 +124,6 @@ lable_intern(char *name)
 		static const float phi = 0.618033988749895;
 		struct Lable lbl = { name };
 		lbl.col = HSVtoRGB(fmod(dist_uniformf() + phi, 1), 0.90, 0.95);
-		sb_init(lbl.chords);
 		sb_push(lables, lbl);
 	}
 	return i;
@@ -304,3 +299,4 @@ print_chords(void)
 	puts("</g>");
 	puts("</svg>");
 }
+
