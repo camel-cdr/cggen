@@ -24,4 +24,4 @@ do
 	printf "%s,%s\n" `curl "$url/works" | grep -o "[0-9]* Works in" | cut -d ' ' -f 1` "$ship"
 done | tee counts.csv
 
-sort -n -t ',' -k 3 counts.csv > sorted.csv
+sort -n counts.csv > sorted.csv
