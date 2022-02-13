@@ -288,13 +288,13 @@ print_chords(void)
 
 		printf("<g transform=\"translate(%f,%f) rotate(%f) scale(0.3,0.3)\">",
 		(l1x + l2x) / 2, (l1y + l2y) / 2, (1+atan2(100-l1x, l1y-100) / PI) * 180.0 + 90);
-		printf("<text font-weight=\"bold\" dx=\"-%fem\">%s</text>", strlen(r->name) / 2.0, r->name);
+		printf("<text font-weight=\"bold\" dx=\"-%fem\">%s</text>", strlen(l->name) / 2.0, l->name);
 		printf("</g>");
 
 
 		printf("<g transform=\"translate(%f,%f) rotate(%f) scale(0.3,0.3)\">",
 		(r1x + r2x) / 2, (r1y + r2y) / 2, (1+atan2(100-r1x, r1y-100) / PI) * 180.0 + 90);
-		printf("<text font-weight=\"bold\" dx=\"-%fem\">%s</text>", strlen(l->name) / 2.0, l->name);
+		printf("<text font-weight=\"bold\" dx=\"-%fem\">%s</text>", strlen(r->name) / 2.0, r->name);
 		printf("</g>");
 	}
 
