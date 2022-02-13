@@ -23,6 +23,6 @@ do
 	curl "$url" | grep 'has been made a synonym of' >/dev/null && continue
 	sleep 0.1
 	printf "%s,%s\n" `curl "$url/works" | grep "[0-9]* Works in" | sed 's/^.*\([0-9][0-9]*\) Works in.*$/\1/'` "$ship"
-done #| tee counts.csv
+done > counts.csv
 
 sort -n -t ',' -k 3 counts.csv > sorted.csv
