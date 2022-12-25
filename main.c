@@ -6,6 +6,7 @@
 #include <string.h>
 #include <stdbool.h>
 
+#define RANDOM_H_IMPLEMENTATION
 #include "vendor/random.h"
 #include "vendor/stretchy-buffer.h"
 
@@ -37,6 +38,10 @@ static Sb(struct Chord) chords;
 static char *file;
 static size_t total;
 
+#define prng64_next prng64_romu_duo_jr
+#define prng64_randomize prng64_romu_duo_randomize
+static PRNG64RomuDuo prng64;
+
 void
 calc_angles(double *x, double *y, size_t total, size_t cur)
 {
@@ -67,8 +72,20 @@ main(void)
 {
 	size_t i, j, k;
 
-	load_csv("data/hp.csv");
+	prng64_randomize(&prng64);
+	load_csv("data/worm.csv");
 	shuf_lables();
+
+	size_t sum = 0;
+	for (i = 0; i < sb_len(lables); ++i) {
+		struct Lable *l = &lables.at[i];
+		for (j = 0; j < sb_len(l->chords); ++j) {
+			struct Chord *c = &chords.at[l->chords.at[j]];
+			sum += c->cnt;
+		}
+	}
+
+	size_t scale = (sum * 0.25 / sb_len(lables)) + 1;
 
 	for (i = 0; i < sb_len(lables); ++i) {
 		struct Lable *l = &lables.at[i];
@@ -85,7 +102,7 @@ main(void)
 				c->rend = (total += c->cnt);
 			}
 		}
-		total += 5000;
+		total += scale;
 	}
 
 	print_chords();
@@ -97,20 +114,24 @@ static uint32_t
 HSVtoRGB(float H, float S, float V)
 {
 	const unsigned idx = H * 6;
-	const float f = H * 6 - idx;
-	const float p = V * (1 - S);
-	const float q = V * (1 - f * S);
-	const float t = V * (1 - (1 - f) * S);
-	float r, g, b;
+	const float C = V * S;
+	const float X = C * (1 - fabsf(fmodf(H*6, 2) - 1));
+	const float m = V - C;
+	float r=0, g=0, b=0;
 
 	switch (idx) {
-	case 0: return ((uint32_t)(V*256)<<16) | ((uint32_t)(t*256)<<8) | (uint32_t)(p*256);
-	case 1: return ((uint32_t)(q*256)<<16) | ((uint32_t)(V*256)<<8) | (uint32_t)(p*256);
-	case 2: return ((uint32_t)(p*256)<<16) | ((uint32_t)(V*256)<<8) | (uint32_t)(t*256);
-	case 3: return ((uint32_t)(p*256)<<16) | ((uint32_t)(p*256)<<8) | (uint32_t)(V*256);
-	case 4: return ((uint32_t)(t*256)<<16) | ((uint32_t)(q*256)<<8) | (uint32_t)(V*256);
-	case 5: return ((uint32_t)(V*256)<<16) | ((uint32_t)(q*256)<<8) | (uint32_t)(q*256);
+	case 0: r=C; g=X; b=0; break;
+	case 1: r=X; g=C; b=0; break;
+	case 2: r=0; g=C; b=X; break;
+	case 3: r=0; g=X; b=C; break;
+	case 4: r=X; g=0; b=C; break;
+	case 5: r=C; g=0; b=X; break;
 	}
+
+	uint8_t R = (r+m)*255;
+	uint8_t G = (g+m)*255;
+	uint8_t B = (b+m)*255;
+	return (R<<16) + (G<<8) + B;
 }
 
 size_t
@@ -121,9 +142,24 @@ lable_intern(char *name)
 		if (strcmp(name, lables.at[i].name) == 0)
 			break;
 	if (i == sb_len(lables)) {
-		static const float phi = 0.618033988749895;
 		struct Lable lbl = { name };
-		lbl.col = HSVtoRGB(fmod(dist_uniformf() + phi, 1), 0.90, 0.95);
+		while (!lbl.col) {
+			lbl.col = HSVtoRGB(
+				dist_uniformf(prng64_next(&prng64)),
+				dist_uniformf(prng64_next(&prng64))*0.8 + 0.2,
+				dist_uniformf(prng64_next(&prng64))*0.4 + 0.6);
+#if 0
+			/* try to force more diverse colors */
+			for (i = 0; i != sb_len(lables); ++i) {
+				uint32_t x = lbl.col, y = lables.at[i].col;
+				uint32_t a =(x&0xff)-(y&0xff); x >>= 8; y >>= 8;
+				uint32_t b =(x&0xff)-(y&0xff); x >>= 8; y >>= 8;
+				uint32_t c =(x&0xff)-(y&0xff);
+				if (a*a+b*b+c*c < 80*80)
+					lbl.col = 0;
+			}
+#endif
+		}
 		sb_push(lables, lbl);
 	}
 	return i;
@@ -185,7 +221,7 @@ load_csv(char *filename)
 			break;
 		*it++ = 0;
 
-		if (cnt > 2500)
+		if (cnt > 4)
 			load_chords_row(cnt, l, r);
 	}
 }
@@ -196,7 +232,7 @@ shuf_lables(void)
 	size_t n = sb_len(lables);
 	for (; n >= 2; n--) {
 		size_t li = n-1;
-		size_t ri = dist_uniform(n);
+		size_t ri = dist_uniform_u64(n, prng64_next, &prng64);
 		struct Lable *l = &lables.at[li];
 		struct Lable *r = &lables.at[ri];
 
@@ -264,8 +300,8 @@ print_chords(void)
 			"gradientUnits=\"userSpaceOnUse\" "
 		       "x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\">\n"
 
-		       "\t\t<stop offset=\"0%\" stop-color=\"#%X\"/>\n"
-		       "\t\t<stop offset=\"100%\" stop-color=\"#%X\"/>\n"
+		       "\t\t<stop offset=\"5%%\" stop-color=\"#%06X\"/>\n"
+		       "\t\t<stop offset=\"95%%\" stop-color=\"#%06X\"/>\n"
 		       "\t</linearGradient>\n"
 		       "</defs>\n",
 			i, lx, ly, rx, ry, l->col, r->col);
@@ -286,15 +322,15 @@ print_chords(void)
 			l1x, l1y
 		);
 
-		printf("<g transform=\"translate(%f,%f) rotate(%f) scale(0.3,0.3)\">",
-		(l1x + l2x) / 2, (l1y + l2y) / 2, (1+atan2(100-l1x, l1y-100) / PI) * 180.0 + 90);
-		printf("<text font-weight=\"bold\" dx=\"-%fem\">%s</text>", strlen(l->name) / 2.0, l->name);
+		// This needs to be cleaned up manually
+		printf("<g transform=\"translate(%f,%f) scale(0.4,0.4)\">",
+		(l1x + l2x) / 2, (l1y + l2y) / 2);
+		printf("<text font-weight=\"bold\">%s</text>", l->name);
 		printf("</g>");
 
-
-		printf("<g transform=\"translate(%f,%f) rotate(%f) scale(0.3,0.3)\">",
-		(r1x + r2x) / 2, (r1y + r2y) / 2, (1+atan2(100-r1x, r1y-100) / PI) * 180.0 + 90);
-		printf("<text font-weight=\"bold\" dx=\"-%fem\">%s</text>", strlen(r->name) / 2.0, r->name);
+		printf("<g transform=\"translate(%f,%f) scale(0.4,0.4)\">",
+		(r1x + r2x) / 2, (r1y + r2y) / 2);
+		printf("<text font-weight=\"bold\">%s</text>", r->name);
 		printf("</g>");
 	}
 
