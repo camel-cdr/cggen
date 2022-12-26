@@ -13,8 +13,6 @@ sed 's/\s*<li><a class="tag" href="\([^"]*\)">\([^<]*\)<\/a><\/li>/\2,https:\/\/
 sed '/&amp;/d' |
 sed '/^[^,]*\/[^,]*\//d' > shiplist.csv
 
-count=0
-skipped=0
 while read -r s
 do
 	ship=$(echo "$s" | cut -d\, -f1 | sed 's/\//,/g')
@@ -25,14 +23,10 @@ do
 	nwords=$(curl -s "$url/works" | grep -o "[0-9]* Works in" | cut -d ' ' -f 1)
 	if [ "$nwords" -gt 1 ] 2> /dev/null
 	then
-		$((count+=1))
 		echo "$nwords,$ship"
 	else
-		$((skipped+=1))
 		echo skip>&2; continue
 	fi
 done <shiplist.csv | tee counts.csv
 
-echo "count: $count"
-echo "skipped: $skipped"
 sort -n counts.csv > sorted.csv
